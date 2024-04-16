@@ -1,10 +1,10 @@
-import { LandingPage } from './pages/LandingPage';
 import {
     createBrowserRouter,
     createRoutesFromElements,
     RouterProvider,
     Route,
 } from 'react-router-dom';
+import { LandingPage } from './pages/LandingPage';
 
 const router = createBrowserRouter(
     createRoutesFromElements(

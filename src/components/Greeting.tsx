@@ -1,6 +1,6 @@
 import logo from '@assets/images/logo.png';
 
-export const Greeting = () => {
+export function Greeting() {
     return (
         <section className="greeting-bg">
             <div className="greeting wrapper">
@@ -20,4 +20,4 @@ export const Greeting = () => {
             </div>
         </section>
     );
-};
+}

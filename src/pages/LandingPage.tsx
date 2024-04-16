@@ -2,7 +2,7 @@ import { Greeting } from '@components/Greeting';
 import { WorkTypes } from '@components/WorkTypes';
 import { Header } from '@components/Header';
 
-export const LandingPage = () => {
+export function LandingPage() {
     return (
         <>
             <Header />
@@ -12,4 +12,4 @@ export const LandingPage = () => {
             </main>
         </>
     );
-};
+}

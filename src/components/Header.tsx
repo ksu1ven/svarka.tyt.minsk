@@ -1,7 +1,7 @@
 import logo from '@assets/images/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 
-export const Header = () => {
+export function Header() {
     return (
         <header className="header-bg">
             <div className="header wrapper">
@@ -35,4 +35,4 @@ export const Header = () => {
             </div>
         </header>
     );
-};
+}

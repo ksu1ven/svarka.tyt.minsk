@@ -1,6 +1,6 @@
 import worktypes from '@assets/images/worktypes.jpg';
 
-export const WorkTypes = () => {
+export function WorkTypes() {
     const workList = [
         {
             name: 'Полуавтоматическая',
@@ -42,4 +42,4 @@ export const WorkTypes = () => {
             </div>
         </section>
     );
-};
+}
