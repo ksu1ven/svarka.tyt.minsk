@@ -99,6 +99,7 @@
     @include mixins.respond-to(mobile) {
         width: 12rem;
         height: 12rem;
+        padding: 1.5rem 1rem;
     }
 
     &__icon {
@@ -113,5 +114,9 @@
     &__p {
         font-family: 'PlayfairDisplay', 'serif';
         font-size: var(--fs-small);
+
+        @include mixins.respond-to(mobile) {
+            margin-top: -0.5rem;
+        }
     }
 }
