@@ -1,0 +1,38 @@
+@use './base/reset';
+@use './base/fonts';
+
+@use './components/swiper';
+@use './components/buttons';
+@use './components/greeting';
+@use './components/worktypes';
+
+@use './layout/header';
+@use './layout/footer';
+@use './layout/layout';
+
+@use './utils/mixins';
+@use './utils/variables';
+@use './utils/animations';
+
+body {
+    overflow-x: hidden;
+    font-family: var(--ff-text);
+    color: var(--color-white);
+    background-color: var(--color-dark);
+}
+
+h2 {
+    @include mixins.h2();
+}
+
+p {
+    @include mixins.p();
+}
+
+h3 {
+    @include mixins.p();
+}
+
+h4 {
+    @include mixins.h4();
+}

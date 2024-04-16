@@ -1,0 +1,117 @@
+@use '../utils/mixins';
+
+.worktypes {
+    padding: var(--padding);
+
+    @include mixins.flex(null, flex-end, auto);
+
+    @include mixins.respond-to(desktop) {
+        display: block;
+        position: relative;
+        padding: var(--padding-d);
+    }
+
+    @include mixins.respond-to(laptop) {
+        padding: var(--padding-l);
+    }
+    @include mixins.respond-to(mobile) {
+        padding: 1rem var(--padding-m);
+    }
+
+    &__content {
+        flex: 0 45%;
+        @include mixins.flex(column, flex-start, flex-start);
+        gap: var(--gap);
+
+        @include mixins.respond-to(desktop) {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &__image-container {
+        flex: 0 auto;
+        @include mixins.flex(null, flex-end, center);
+
+        @include mixins.respond-to(desktop) {
+            position: absolute;
+            top: 30%;
+            right: var(--padding-d);
+        }
+        @include mixins.respond-to(mobile) {
+            position: absolute;
+            top: 25%;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    &__img {
+        height: 50rem;
+
+        @include mixins.respond-to(desktop) {
+            height: 40rem;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        align-self: flex-end;
+        position: relative;
+        right: -15%;
+        margin-top: 2rem;
+
+        @include mixins.respond-to(desktop) {
+            right: 35%;
+            margin-top: 6rem;
+        }
+
+        @include mixins.respond-to(laptop) {
+            right: 25%;
+        }
+
+        @include mixins.respond-to(tablet) {
+            align-self: flex-start;
+            right: 0;
+            padding-left: 0;
+        }
+
+        @include mixins.respond-to(mobile) {
+            position: static;
+            margin: auto;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--gap);
+        }
+    }
+}
+
+.work-item {
+    @include mixins.flex(column, flex-start, center);
+    gap: 0.8rem;
+    padding: 2rem 1rem;
+    width: 14rem;
+    height: 14rem;
+    background-color: var(--color-dark);
+    text-align: center;
+
+    @include mixins.respond-to(mobile) {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    &__icon {
+        width: 4rem;
+        height: 4rem;
+        border: 2px solid var(--color-white);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+    }
+
+    &__p {
+        font-family: 'PlayfairDisplay', 'serif';
+        font-size: var(--fs-small);
+    }
+}

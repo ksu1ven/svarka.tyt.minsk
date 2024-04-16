@@ -1,0 +1,100 @@
+@use '../utils/mixins';
+
+.header {
+    &-bg {
+        background: linear-gradient(to right, #fdd801 40%, #051622 40%);
+        @include mixins.respond-to(tablet) {
+            background: var(--color-accent);
+        }
+    }
+
+    @include mixins.flex(null, space-between, center);
+    padding: 1rem var(--padding);
+    color: var(--color-dark);
+    @include mixins.h3();
+
+    @include mixins.respond-to(desktop) {
+        padding: 1rem var(--padding-d);
+    }
+
+    @include mixins.respond-to(laptop) {
+        padding: 1rem var(--padding-l);
+    }
+
+    @include mixins.respond-to(tablet) {
+        @include mixins.flex(column, flex-start, flex-end);
+        height: 2em;
+    }
+
+    &__contacts {
+        @include mixins.flex(null, space-between, center);
+        font-family: var(--ff-text);
+        font-weight: bold;
+        font-size: var(--fs-medium);
+
+        @include mixins.respond-to(laptop) {
+            gap: 0.5rem;
+        }
+
+        @include mixins.respond-to(mobile) {
+            display: none;
+        }
+    }
+
+    &__logo {
+        width: 3rem;
+
+        @include mixins.respond-to(laptop) {
+            width: 2rem;
+        }
+
+        @include mixins.respond-to(tablet) {
+            display: none;
+        }
+    }
+}
+
+.nav {
+    flex: 0 50%;
+
+    @include mixins.respond-to(desktop) {
+        flex: 0 60%;
+    }
+
+    &__list {
+        @include mixins.flex(null, space-between, center);
+        font-size: var(--fs-nav);
+        font-weight: normal;
+        line-height: 1.6em;
+        color: var(--color-white);
+        text-align: center;
+
+        @include mixins.respond-to(laptop) {
+            gap: 0.5rem;
+        }
+        @include mixins.respond-to(tablet) {
+            display: none;
+        }
+    }
+}
+
+.burger-icon {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--color-dark);
+    z-index: 10;
+    border-radius: 50%;
+    @include mixins.flex(column, space-between, center);
+    padding: 1.2rem 0.8rem;
+    gap: 0;
+
+    div {
+        background-color: var(--color-white);
+        height: 4px;
+        width: 90%;
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,66 @@
+$breakpoints: (
+    'desktop': (
+        max-width: 1300px,
+    ),
+    'laptop': (
+        max-width: 992px,
+    ),
+    'tablet': (
+        max-width: 768px,
+    ),
+    'mobile': (
+        max-width: 576px,
+    ),
+) !default;
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    } @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+@mixin flex($dir, $jus, $ali) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jus;
+    align-items: $ali;
+    gap: var(--gap, 1rem);
+}
+
+@mixin abs() {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@mixin h2() {
+    font-family: var(--ff-title);
+    font-size: var(--fs-medium-big);
+    text-transform: uppercase;
+    line-height: 1.1em;
+}
+
+@mixin h3() {
+    font-family: var(--ff-title);
+    font-size: var(--fs-medium);
+    text-transform: uppercase;
+    line-height: 1.1em;
+}
+
+@mixin p {
+    font-family: var(--ff-text);
+    font-size: var(--fs-medium-small);
+    font-weight: normal;
+    line-height: 1.6em;
+}
+
+@mixin h4 {
+    font-family: 'PlayfairDisplay', 'serif';
+    font-size: var(--fs-list);
+    line-height: 1.2em;
+}

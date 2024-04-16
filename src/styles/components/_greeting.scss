@@ -1,0 +1,92 @@
+@use '../utils/mixins';
+
+.greeting {
+    &-bg {
+        background: linear-gradient(to right, #fdd801 40%, #051622 40%);
+
+        @include mixins.respond-to(tablet) {
+            background: var(--color-dark);
+        }
+    }
+    @include mixins.flex(null, center, stretch);
+    gap: 10%;
+
+    @include mixins.respond-to(tablet) {
+        @include mixins.flex(column, flex-start, stretch);
+    }
+
+    &__img-container {
+        flex: 0 1 40%;
+        @include mixins.flex(null, flex-end, auto);
+
+        @include mixins.respond-to(tablet) {
+            background: var(--color-accent);
+        }
+    }
+    &__img {
+        position: relative;
+        transform: scale(1.05) translateX(37%);
+
+        height: 42rem;
+
+        @include mixins.respond-to(laptop) {
+            height: 34rem;
+        }
+        @include mixins.respond-to(tablet) {
+            transform: translateX(-10%) translateY(8%);
+            height: 26rem;
+        }
+        @include mixins.respond-to(mobile) {
+            height: 18rem;
+        }
+    }
+
+    &__content {
+        flex: 0 50%;
+        padding: var(--padding);
+        @include mixins.flex(column, flex-end, flex-end);
+        gap: 4rem;
+        @include mixins.respond-to(desktop) {
+            padding: 1rem var(--padding-d);
+        }
+        @include mixins.respond-to(laptop) {
+            padding: 1rem var(--padding-l);
+        }
+        @include mixins.respond-to(mobile) {
+            padding: 1rem var(--padding-m);
+        }
+    }
+
+    &__h1 {
+        font-family: var(--ff-title-accent);
+        text-transform: uppercase;
+        font-size: var(--fs-big);
+        text-align: right;
+        line-height: 1.1em;
+
+        @include mixins.respond-to(tablet) {
+            margin-top: var(--margin);
+        }
+
+        span {
+            display: block;
+            @include mixins.h2();
+        }
+    }
+
+    &__p {
+        width: 85%;
+        align-self: flex-start;
+
+        @include mixins.respond-to(laptop) {
+            padding-left: var(--padding-l);
+        }
+        @include mixins.respond-to(tablet) {
+            padding-left: 0;
+        }
+
+        @include mixins.respond-to(mobile) {
+            width: 100%;
+        }
+    }
+}

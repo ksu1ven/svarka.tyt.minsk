@@ -1,0 +1,41 @@
+:root {
+    //Colors
+    --color-white: #ffffff;
+    --color-accent: #fdd801;
+    --color-dark: #051622;
+    --color-black: #000000;
+
+    // --drop-shadow-white: 0rem 0rem 0.8rem 0.3rem var(--color-white);
+    // --text-shadow-white: 1px 1px 0.5px #ffffff;
+    // --drop-shadow-dark: 0 0 1.5rem 1rem var(--color-dark),
+    //     0 0 0.6rem var(--color-dark);
+    // --text-shadow-dark: 1px 1px 0.5px #52564d;
+
+    //Fonts
+    --ff-title: 'Ubuntu-Regular', sans-serif;
+    --ff-title-accent: 'Ubuntu-Bold', sans-serif;
+    --ff-text: 'OpenSans-Regular', sans-serif;
+    --ff-list: 'PlayfairDisplay', serif;
+
+    --fs-big: clamp(2.5rem, 4.5vw, 6rem);
+    --fs-medium-big: clamp(2rem, 3vw, 3.75rem);
+    --fs-medium: clamp(1.3rem, 1.8vw, 3rem);
+    --fs-medium-small: clamp(1.1em, 1.3vw, 1.7rem);
+    --fs-nav: clamp(0.9rem, 1.3vw, 1.7rem);
+    --fs-list: clamp(1.05rem, 2.2vw, 1.2rem);
+    --fs-small: clamp(0.8rem, 1vw, 1rem);
+    // --fs-smallest: clamp(0.5rem, 0.7vw, 1rem);
+
+    --padding: 5rem;
+    --padding-d: 4rem;
+    --padding-l: 2rem;
+    --padding-m: 1.5rem;
+
+    --margin: 1.25rem;
+    --gap: 2rem;
+
+    --border-radius: 0.2rem;
+
+    --transition: ease-in-out 0.4s;
+    --transition-min: ease-in-out 0.2s;
+}

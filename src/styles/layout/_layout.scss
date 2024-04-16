@@ -1,0 +1,14 @@
+@use '../utils/mixins';
+
+.wrapper {
+    max-width: 1920px;
+    margin: auto;
+
+    // @include mixins.respond-to(laptop) {
+    //     width: calc(100vw - 6rem);
+    // }
+
+    // @include mixins.respond-to(mobile) {
+    //     width: calc(100vw - 4rem);
+    // }
+}
