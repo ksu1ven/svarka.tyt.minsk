@@ -13,6 +13,15 @@
             position: relative;
             top: 10%;
         }
+
+        @include mixins.respond-to(mobile) {
+            background: linear-gradient(
+                to right,
+                var(--color-dark) 20%,
+                var(--color-accent) 20% 80%,
+                var(--color-dark) 80%
+            );
+        }
     }
 
     padding: var(--padding);
