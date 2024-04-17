@@ -23,7 +23,7 @@
 
     @include mixins.respond-to(tablet) {
         @include mixins.flex(column, flex-start, flex-end);
-        height: 2em;
+        height: 3em;
     }
 
     &__contacts {
@@ -34,10 +34,6 @@
 
         @include mixins.respond-to(laptop) {
             gap: 0.5rem;
-        }
-
-        @include mixins.respond-to(mobile) {
-            display: none;
         }
     }
 
@@ -118,6 +114,11 @@
         width: 90%;
         border-radius: 2px;
     }
+}
+
+#menu__toggle:checked ~ .menu__btn {
+    left: auto;
+    right: 1rem;
 }
 
 #menu__toggle:checked ~ .menu__btn > div:nth-child(2) {
