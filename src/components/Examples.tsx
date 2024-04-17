@@ -1,11 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Keyboard, A11y, Scrollbar } from 'swiper/modules';
+import { Navigation, Keyboard, A11y, Scrollbar, Zoom } from 'swiper/modules';
 import cat from '@assets/images/cat.jpg';
 
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/a11y';
 import 'swiper/scss/scrollbar';
+import 'swiper/css/zoom';
 
 export function Examples() {
     const slidesPerView = window.innerWidth > 768 ? 2 : 1;
@@ -19,12 +20,13 @@ export function Examples() {
                 <div className="examples__content">
                     <Swiper
                         className="examples-swiper"
-                        modules={[Navigation, Keyboard, A11y, Scrollbar]}
+                        modules={[Navigation, Keyboard, A11y, Scrollbar, Zoom]}
                         spaceBetween={50}
                         slidesPerView={slidesPerView}
                         speed={600}
                         navigation
                         keyboard
+                        zoom
                         scrollbar={{
                             hide: true,
                         }}
@@ -38,11 +40,13 @@ export function Examples() {
                                 className="examples-slide"
                                 key={el.name}
                             >
-                                <img
-                                    src={el}
-                                    alt="work example"
-                                    className="examples__img"
-                                />
+                                <div className="swiper-zoom-container">
+                                    <img
+                                        src={el}
+                                        alt="work example"
+                                        className="examples__img"
+                                    />
+                                </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
