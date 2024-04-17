@@ -26,6 +26,10 @@
         height: 3em;
     }
 
+    @include mixins.respond-to(mobile) {
+        padding: 1rem var(--padding-m);
+    }
+
     &__contacts {
         @include mixins.flex(null, space-between, center);
         font-family: var(--ff-text);
