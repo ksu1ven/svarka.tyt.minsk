@@ -2,6 +2,11 @@ import logo from '@assets/images/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 
 export function Header() {
+    const handleChange = (el: HTMLInputElement) => {
+        if (el.checked) document.body.style.setProperty('overflow', 'hidden');
+        else document.body.style.removeProperty('overflow');
+    };
+
     return (
         <header className="header-bg">
             <div className="header wrapper">
@@ -11,24 +16,40 @@ export function Header() {
                 </div>
                 <nav className="nav">
                     {window.innerWidth <= 768 && (
-                        <figure className="burger-icon">
-                            <div />
-                            <div />
-                            <div />
-                        </figure>
+                        <>
+                            <input
+                                id="menu__toggle"
+                                type="checkbox"
+                                onChange={(e) => handleChange(e.target)}
+                            />
+                            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                            <label className="menu__btn" htmlFor="menu__toggle">
+                                <div />
+                                <div />
+                                <div />
+                            </label>
+                        </>
                     )}
                     <ul className="nav__list">
                         <li>
-                            <NavLink to="#">Услуги</NavLink>
+                            <NavLink to="#" className="nav__link">
+                                Услуги
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="#">Примеры работ</NavLink>
+                            <NavLink to="#" className="nav__link">
+                                Примеры работ
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="#">Форма для связи</NavLink>
+                            <NavLink to="#" className="nav__link">
+                                Форма для связи
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="#">Контакты</NavLink>
+                            <NavLink to="#" className="nav__link">
+                                Контакты
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>

@@ -29,6 +29,22 @@ module.exports = {
         'prettier/prettier': 'error',
         'import/prefer-default-export': 'off',
         'jsx-a11y/media-has-caption': 'off',
+        'jsx-a11y/label-has-associated-control': [
+            'error',
+            {
+                required: {
+                    some: ['nesting', 'id'],
+                },
+            },
+        ],
+        'jsx-a11y/label-has-for': [
+            'error',
+            {
+                required: {
+                    some: ['nesting', 'id'],
+                },
+            },
+        ],
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/array-type': [
             'error',
