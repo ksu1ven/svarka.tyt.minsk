@@ -1,1 +1,29 @@
 @use '../utils/mixins';
+
+.examples-swiper {
+    flex: 1 0 70%;
+    margin: var(--margin) 0;
+    padding: 0 3rem;
+
+    @include mixins.respond-to(laptop) {
+        width: 90%;
+    }
+
+    @include mixins.respond-to(mobile) {
+        padding: 0;
+    }
+}
+
+.swiper-button-prev::after {
+    content: '❮';
+    color: var(--color-accent);
+}
+
+.swiper-button-next::after {
+    content: '❯';
+    color: var(--color-dark);
+
+    @include mixins.respond-to(laptop) {
+        color: var(--color-accent);
+    }
+}

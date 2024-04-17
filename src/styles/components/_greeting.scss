@@ -2,7 +2,11 @@
 
 .greeting {
     &-bg {
-        background: linear-gradient(to right, #fdd801 40%, #051622 40%);
+        background: linear-gradient(
+            to right,
+            var(--color-accent) 40%,
+            var(--color-dark) 40%
+        );
 
         @include mixins.respond-to(tablet) {
             background: var(--color-dark);
