@@ -29,7 +29,7 @@
     &__h2 {
         @include mixins.respond-to(tablet) {
             width: 80%;
-            text-align: center;
+            text-align: right;
         }
 
         @include mixins.respond-to(mobile) {
