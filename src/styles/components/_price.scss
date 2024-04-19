@@ -1,0 +1,59 @@
+@use '../utils/mixins';
+
+.price {
+    padding: var(--padding);
+    @include mixins.flex(column, flex-start, flex-end);
+
+    @include mixins.respond-to(desktop) {
+        padding: var(--padding-d);
+    }
+    @include mixins.respond-to(laptop) {
+        padding: var(--padding-l);
+    }
+    @include mixins.respond-to(mobile) {
+        padding: var(--padding-m);
+    }
+
+    &__content {
+        width: 80%;
+        @include mixins.flex(null, flex-start, center);
+
+        @include mixins.respond-to(laptop) {
+            width: 100%;
+        }
+        @include mixins.respond-to(tablet) {
+            @include mixins.flex(column, flex-start, center);
+        }
+    }
+
+    &__h2 {
+        @include mixins.respond-to(tablet) {
+            width: 80%;
+            text-align: center;
+        }
+
+        @include mixins.respond-to(mobile) {
+            width: 100%;
+        }
+    }
+
+    &__p {
+        align-self: flex-start;
+    }
+
+    &-factors__list {
+        flex: 1 0 60%;
+        @include mixins.flex(column, flex-start, flex-start);
+        @include mixins.p();
+        gap: 1rem;
+    }
+
+    &-factors__li {
+        list-style: square;
+
+        b {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}
