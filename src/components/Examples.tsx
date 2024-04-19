@@ -1,4 +1,3 @@
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Keyboard, A11y, Scrollbar, Zoom } from 'swiper/modules';
 import cat from '@assets/images/cat.jpg';
