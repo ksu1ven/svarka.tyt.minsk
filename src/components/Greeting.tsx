@@ -12,19 +12,26 @@ export function Greeting() {
                 </div>
                 <div className="greeting__content">
                     <div className="contacts">
-                        <Link to="https://t.me/anna_osechkina">
-                            <img
-                                src={telegram}
-                                alt="telegram"
+                        <div className="contacts__icons">
+                            <Link to="https://t.me/anna_osechkina">
+                                <img
+                                    src={telegram}
+                                    alt="telegram"
+                                    className="contacts__icon"
+                                />
+                            </Link>
+                            <Link
+                                to="viber://chat?number=%2B375445547883"
                                 className="contacts__icon"
-                            />
-                        </Link>
-                        <Link
-                            to="viber://chat?number=%2B375445547883"
-                            className="contacts__icon"
-                        >
-                            <img src={viber} alt="viber" />
-                        </Link>
+                            >
+                                <img
+                                    src={viber}
+                                    alt="viber"
+                                    className="contacts__icon"
+                                />
+                            </Link>
+                        </div>
+
                         <Link to="tel:+375445547883">+375 (44) 554-78-83</Link>
                     </div>
                     <h1 className="greeting__h1">
