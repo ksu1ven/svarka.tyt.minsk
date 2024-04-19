@@ -24,6 +24,8 @@
         @include mixins.flex(null, flex-end, auto);
 
         @include mixins.respond-to(tablet) {
+            @include mixins.flex(null, center, auto);
+
             background: var(--color-accent);
         }
     }
@@ -37,7 +39,7 @@
             height: 34rem;
         }
         @include mixins.respond-to(tablet) {
-            transform: translateX(-10%) translateY(8%);
+            transform: translateY(8%);
             height: 26rem;
         }
         @include mixins.respond-to(mobile) {
@@ -55,6 +57,9 @@
         }
         @include mixins.respond-to(laptop) {
             padding: 1rem var(--padding-l);
+        }
+        @include mixins.respond-to(tablet) {
+            gap: 2rem;
         }
         @include mixins.respond-to(mobile) {
             padding: 1rem var(--padding-m);
@@ -91,6 +96,26 @@
 
         @include mixins.respond-to(mobile) {
             width: 100%;
+        }
+    }
+}
+
+.contacts {
+    @include mixins.flex(null, flex-end, center);
+    font-family: var(--ff-text);
+    font-weight: bold;
+    font-size: var(--fs-medium);
+    gap: 0.8rem;
+
+    @include mixins.respond-to(laptop) {
+        gap: 0.5rem;
+    }
+
+    &__icon {
+        width: 3rem;
+
+        @include mixins.respond-to(tablet) {
+            width: 2.1rem;
         }
     }
 }

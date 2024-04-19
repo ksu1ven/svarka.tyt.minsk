@@ -120,3 +120,52 @@
         }
     }
 }
+
+.details {
+    position: relative;
+
+    &__btn {
+        background-color: var(--color-dark);
+        border: none;
+        width: 3rem;
+        cursor: pointer;
+        transition: var(--transition);
+
+        @media screen and (hover: 'hover') {
+            &:hover {
+                transform: rotate(180deg);
+            }
+
+            &:hover + .details__ul {
+                transform: scaleY(1);
+            }
+        }
+    }
+
+    &__ul {
+        transition: var(--transition);
+        transform-origin: top center;
+        transform: scaleY(0);
+        @include mixins.flex(column, flex-start, flex-start);
+        text-align: left;
+        gap: 0.4rem;
+        padding: 1rem 2rem;
+        background-color: var(--color-dark);
+        border: 2px solid var(--color-white);
+        font-size: var(--fs-small);
+        position: absolute;
+        z-index: 3;
+        left: -220%;
+        width: 16rem;
+    }
+
+    &__li {
+        width: 100%;
+        padding-bottom: 0.1rem;
+        border-bottom: 2px solid var(--color-white);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

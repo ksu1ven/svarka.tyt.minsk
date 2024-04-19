@@ -1,4 +1,7 @@
 import worktypes from '@assets/images/worktypes.jpg';
+import { useState } from 'react';
+
+import { WorkItem } from './small/WorkItem';
 
 export function WorkTypes() {
     const workList = [
@@ -7,10 +10,35 @@ export function WorkTypes() {
             short: 'MIG MAG',
             description: '(на герметичность, металлоконструкции)',
         },
-        { name: 'Аргонно-дуговая', short: 'TIG' },
-        { name: 'Ручная дуговая', short: 'MMA' },
+        {
+            name: 'Аргонодуговая',
+            short: 'TIG',
+            details: [
+                'Поддоны автомобилей',
+                'кронштейны, корпуса',
+                'трубки кондиционеров',
+                'авторадиаторы',
+                'интеркуллеры',
+                'головки блока цилиндров',
+                'легкосплавные диски',
+                'мото-вело рамы',
+                'коллекторы',
+                'полотенцесушители (нержавейка)',
+                'бытовая утварь',
+            ],
+        },
+        {
+            name: 'Ручная дуговая',
+            short: 'MMA',
+            details: ['козырьки, невесы', 'печи для бани', 'трубы'],
+        },
         { name: 'Плазменная резка металла', short: 'CUT' },
     ];
+
+    const [detailsOpenDiv, setDetailsOpenDiv] = useState<HTMLDivElement | null>(
+        null
+    );
+
     return (
         <section className="worktypes wrapper">
             <div className="worktypes__content">
@@ -25,17 +53,15 @@ export function WorkTypes() {
 
                 <ul className="worktypes__list">
                     {workList.map((el) => (
-                        <li key={el.short} className="work-item">
-                            <figure className="work-item__icon">
-                                {el.short}
-                            </figure>
-                            <h4 className="work-item__h4">{el.name}</h4>
-                            <p className="work-item__p">
-                                {el.description || ' '}
-                            </p>
-                        </li>
+                        <WorkItem
+                            el={el}
+                            key={el.name}
+                            detailsOpenDiv={detailsOpenDiv}
+                            setDetailsOpenDiv={setDetailsOpenDiv}
+                        />
                     ))}
                 </ul>
+                <div />
             </div>
             <div className="worktypes__image-container">
                 <img src={worktypes} alt="welder" className="worktypes__img" />

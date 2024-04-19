@@ -7,11 +7,10 @@
             background: var(--color-accent);
         }
     }
+}
 
-    @include mixins.flex(null, space-between, center);
+.nav {
     padding: 1rem var(--padding);
-    color: var(--color-dark);
-    @include mixins.h3();
 
     @include mixins.respond-to(desktop) {
         padding: 1rem var(--padding-d);
@@ -30,39 +29,9 @@
         padding: 1rem var(--padding-m);
     }
 
-    &__contacts {
-        @include mixins.flex(null, space-between, center);
-        font-family: var(--ff-text);
-        font-weight: bold;
-        font-size: var(--fs-medium);
-
-        @include mixins.respond-to(laptop) {
-            gap: 0.5rem;
-        }
-    }
-
-    &__logo {
-        width: 3rem;
-
-        @include mixins.respond-to(laptop) {
-            width: 2rem;
-        }
-
-        @include mixins.respond-to(tablet) {
-            display: none;
-        }
-    }
-}
-
-.nav {
-    flex: 0 50%;
-
-    @include mixins.respond-to(desktop) {
-        flex: 0 60%;
-    }
-
     &__list {
-        @include mixins.flex(null, space-between, center);
+        @include mixins.flex(null, flex-end, center);
+        @include mixins.h3();
         font-size: var(--fs-nav);
         font-weight: normal;
         line-height: 1.6em;
