@@ -124,6 +124,12 @@
 .details {
     position: relative;
 
+    @media screen and (hover: 'hover') {
+        &:hover .details__btn {
+            transform: rotate(180deg);
+        }
+    }
+
     &__btn {
         background-color: var(--color-dark);
         border: none;
@@ -132,11 +138,7 @@
         transition: var(--transition);
 
         @media screen and (hover: 'hover') {
-            &:hover {
-                transform: rotate(180deg);
-            }
-
-            &:hover + .details__ul {
+            &:hover ~ .details__ul {
                 transform: scaleY(1);
             }
         }
@@ -157,6 +159,12 @@
         z-index: 3;
         left: -220%;
         width: 16rem;
+
+        @media screen and (hover: 'hover') {
+            &:hover {
+                transform: scaleY(1);
+            }
+        }
     }
 
     &__li {
