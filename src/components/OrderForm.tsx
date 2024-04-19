@@ -32,17 +32,18 @@ export function OrderForm() {
         //     formData.append('image', image);
         // }
         if (description) formData.append('description', description);
+
         fetch('sendmail.php', {
             method: 'POST',
             body: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
-        }).then((response) => {
-            response.json().then((res) => {
-                console.log(`Successful${res}`);
-            });
-        });
+        })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => console.log(err));
     };
 
     return (
