@@ -28,6 +28,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'prettier/prettier': 'error',
         'import/prefer-default-export': 'off',
+        'react/jsx-props-no-spreading': 'off',
         'jsx-a11y/media-has-caption': 'off',
         'jsx-a11y/label-has-associated-control': [
             'error',
