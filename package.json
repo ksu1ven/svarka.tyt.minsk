@@ -10,8 +10,8 @@
         "lint": "eslint . --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "prepare": "husky",
-        "start-server": "node server.js",
-        "server": "nodemon server.js",
+        "start-server": "node api/index.js",
+        "server": "nodemon api/index.js",
         "client": "npm start --prefix client",
         "dev": "concurrently \"npm run server\" \"npm run start-client\""
     },
