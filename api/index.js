@@ -1,12 +1,21 @@
-import path from 'path';
 import express from 'express';
 import bodyparcer from 'body-parser';
 import nodemailer from 'nodemailer';
 import cors from 'cors';
 
 const app = express();
-app.use(bodyparcer.json());
-app.use(bodyparcer.urlencoded({ extended: true }));
+
+app.use(
+    bodyparcer.json({ limit: '50mb', extended: true, parameterLimit: 50000 })
+);
+app.use(
+    bodyparcer.urlencoded({
+        limit: '50mb',
+        extended: true,
+        parameterLimit: 50000,
+    })
+);
+
 app.use(cors());
 
 app.get('/api/', (res) => {
@@ -14,8 +23,7 @@ app.get('/api/', (res) => {
 });
 
 app.post('/api/send', (req, res) => {
-    console.log(req.body);
-    let { name, phone, description } = req.body;
+    let { name, phone, description, images } = req.body;
 
     let smtpTransport = nodemailer.createTransport({
         host: 'smtp.mail.ru',
@@ -30,15 +38,22 @@ app.post('/api/send', (req, res) => {
     let mailoptions = {
         from: 'ksu1ven@mail.ru',
         to: 'ksu1ven@mail.ru',
-        subject: 'Новый заказ с сайта',
+        subject: 'Новый заказ с сайта svarka-tyt-minsk',
         html: `
-        <h3>${name}</h3>
-        <h3>${phone}</h3>
-        <h3>${description}</h3>
+        <h2>Имя клиента: ${name}</h2>
+        <h3>Телефон: ${phone}</h3>
+        <p>Описание: ${description}</p>
         `,
+        attachments: images.map((image, index) => {
+            return {
+                filename: `zakaz-${index}.jpg`,
+                content: image.split('base64,')[1],
+                encoding: 'base64',
+            };
+        }),
     };
 
-    smtpTransport.sendMail(mailoptions, (error, response) => {
+    smtpTransport.sendMail(mailoptions, (error) => {
         if (error) res.send(error);
         else {
             res.send('Success');

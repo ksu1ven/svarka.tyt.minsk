@@ -1,9 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { validationSchema } from '@utils/yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-// import { fileToBase64 } from '@utils/functions';
+import { fileToBase64 } from '@utils/functions';
 
 // rmK3TK9AE5XCLqx4JJWs
+// http://localhost:3001
 
 export type Fields = {
     name: string;
@@ -23,7 +24,19 @@ export function OrderForm() {
     });
 
     const onSubmit = async (data: Fields) => {
-        // const image64 = image ? await fileToBase64(image[0]) : '';
+        const { name, phone, image, description } = data;
+
+        const files = image ? Array.from(image) : [];
+        const images64 = files.length
+            ? (
+                  await Promise.allSettled(
+                      files.map((file) => fileToBase64(file))
+                  )
+              ).map((res) => {
+                  if (res.status === 'fulfilled') return res.value;
+                  return undefined;
+              })
+            : [];
 
         try {
             await fetch('/api/send', {
@@ -34,7 +47,12 @@ export function OrderForm() {
                     'Content-Type': 'application/json',
                 },
 
-                body: JSON.stringify(data),
+                body: JSON.stringify({
+                    name,
+                    phone,
+                    images: images64,
+                    description,
+                }),
             });
 
             alert('Email sent!');
@@ -79,6 +97,7 @@ export function OrderForm() {
                             <input
                                 type="file"
                                 id="image"
+                                multiple
                                 {...register('image')}
                             />
                             <p>{errors.image ? errors.image.message : ''}</p>
