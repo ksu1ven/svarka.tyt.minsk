@@ -26,7 +26,7 @@ export function OrderForm() {
         // const image64 = image ? await fileToBase64(image[0]) : '';
 
         try {
-            await fetch('http://localhost:3001/api/send', {
+            await fetch('/api/send', {
                 method: 'POST',
 
                 headers: {
