@@ -9,12 +9,10 @@ app.use(bodyparcer.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/', () => {
-    console.log('WELCOME');
     resizeBy.send('Welcome!');
 });
 
 app.post('/api/send', (req, res) => {
-    console.log('ASDFG');
     console.log(req.body);
     let { name, phone, description } = req.body;
 
