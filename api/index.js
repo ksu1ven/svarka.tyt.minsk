@@ -8,8 +8,8 @@ app.use(bodyparcer.json());
 app.use(bodyparcer.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/', () => {
-    resizeBy.send('Welcome!');
+app.get('/api/', (res) => {
+    res.send('Hello');
 });
 
 app.post('/api/send', (req, res) => {
