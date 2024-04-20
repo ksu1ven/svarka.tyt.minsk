@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { validationSchema } from '@utils/yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { fileToBase64 } from '@utils/functions';
+// import { fileToBase64 } from '@utils/functions';
 
 // rmK3TK9AE5XCLqx4JJWs
 
@@ -23,12 +23,10 @@ export function OrderForm() {
     });
 
     const onSubmit = async (data: Fields) => {
-        const { name, phone, description, image } = data;
-
-        const image64 = image ? await fileToBase64(image[0]) : '';
+        // const image64 = image ? await fileToBase64(image[0]) : '';
 
         try {
-            let response = await fetch('http://localhost:3001/api/send', {
+            await fetch('http://localhost:3001/api/send', {
                 method: 'POST',
 
                 headers: {
