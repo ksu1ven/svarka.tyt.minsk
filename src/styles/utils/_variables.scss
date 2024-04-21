@@ -3,13 +3,7 @@
     --color-white: #ffffff;
     --color-accent: #fdd801;
     --color-dark: #051622;
-    --color-black: #000000;
-
-    // --drop-shadow-white: 0rem 0rem 0.8rem 0.3rem var(--color-white);
-    // --text-shadow-white: 1px 1px 0.5px #ffffff;
-    // --drop-shadow-dark: 0 0 1.5rem 1rem var(--color-dark),
-    //     0 0 0.6rem var(--color-dark);
-    --text-shadow-dark: 1px 1px 0.5px #051622;
+    --color-error: #d20b0b;
 
     //Fonts
     --ff-title: 'Ubuntu-Regular', sans-serif;
@@ -24,7 +18,7 @@
     --fs-nav: clamp(0.9rem, 1.3vw, 1.7rem);
     --fs-list: clamp(1.05rem, 2.2vw, 1.2rem);
     --fs-small: clamp(0.8rem, 1vw, 1rem);
-    // --fs-smallest: clamp(0.5rem, 0.7vw, 1rem);
+    --fs-smallest: clamp(0.5rem, 0.7vw, 1rem);
 
     --padding: 5rem;
     --padding-d: 4rem;

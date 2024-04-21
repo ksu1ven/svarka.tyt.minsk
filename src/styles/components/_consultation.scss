@@ -1,0 +1,73 @@
+@use '../utils/mixins';
+
+.consultation {
+    &-bg {
+        background: linear-gradient(
+            to right,
+            var(--color-dark) 30%,
+            var(--color-accent) 30% 70%,
+            var(--color-dark) 70%
+        );
+    }
+
+    padding: var(--padding);
+    @include mixins.flex(null, space-between, flex-start);
+
+    @include mixins.respond-to(desktop) {
+        padding: var(--padding-d);
+    }
+    @include mixins.respond-to(laptop) {
+        padding: var(--padding-l);
+    }
+    @include mixins.respond-to(mobile) {
+        padding: var(--padding-m);
+    }
+
+    &__img-container {
+        flex: 0 50%;
+        @include mixins.flex(null, flex-end, auto);
+
+        @include mixins.respond-to(tablet) {
+            @include mixins.flex(null, center, auto);
+
+            background: var(--color-accent);
+        }
+    }
+    &__img {
+    }
+
+    &__content {
+        flex: 0 40%;
+
+        @include mixins.flex(column, flex-start, flex-end);
+    }
+}
+
+.consultation-form {
+    @include mixins.flex(column, flex-end, flex-start);
+    gap: 1rem;
+    margin: var(--margin) 4rem 0 0;
+
+    .form__item {
+        @include mixins.flex(null, flex-end, flex-start);
+        width: 100%;
+        font-size: var(--fs-small);
+        gap: 1rem;
+    }
+
+    .form__error {
+        min-height: 1rem;
+        font-size: var(--fs-small);
+        color: var(--color-error);
+        text-transform: lowercase;
+    }
+
+    .form__label {
+        width: 100%;
+        font-size: var(--fs-medium-small);
+
+        span {
+            color: var(--color-error);
+        }
+    }
+}

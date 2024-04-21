@@ -11,20 +11,42 @@ export const validationSchema = object({
             parsePhoneNumber(phone)?.isValid()
         ),
     description: string(),
-    image: mixed<FileList>(),
-    // image: mixed<FileList>()
-    //     .test('fileSize', 'The image size must be up to 200 kB', (file) => {
-    //         if (!file?.length) return false;
-    //         return file[0].size <= 204800;
-    //     })
-    //     .test(
-    //         'extension',
-    //         'The image must be in PNG or JPEG format',
-    //         (file) => {
-    //             if (!file?.length) return false;
-    //             return (
-    //                 file[0].type == 'image/png' || file[0].type === 'image/jpeg'
-    //             );
-    //         }
-    //     ),
+
+    image: mixed<FileList>()
+        .test('fileLength', 'Вы можете прикрепить не более 5 фото', (files) => {
+            if (files) return files.length <= 5;
+            return true;
+        })
+        .test(
+            'fileSize',
+            'Размер каждого изображения не должен превышать 10 МБ',
+            (files) => {
+                if (files) {
+                    /* eslint-disable-next-line */
+                    for (const file of files) {
+                        if (file.size >= 1e7) return false;
+                    }
+                }
+                return true;
+            }
+        )
+        .test(
+            'extension',
+            'Фото должно быть в PNG или JPEG формате',
+            (files) => {
+                if (files) {
+                    /* eslint-disable-next-line */
+                    for (const file of files) {
+                        if (
+                            !(
+                                file.type === 'image/png' ||
+                                file.type === 'image/jpeg'
+                            )
+                        )
+                            return false;
+                    }
+                }
+                return true;
+            }
+        ),
 });
