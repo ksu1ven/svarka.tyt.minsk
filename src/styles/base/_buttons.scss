@@ -11,12 +11,18 @@
     min-height: 3.2rem;
     transition: var(--transition);
 
+    &:disabled {
+        opacity: 70%;
+    }
+
     @include mixins.respond-to(mobile) {
         width: 100%;
     }
 
-    &:hover {
-        background-color: #f86e05;
-        border-color: transparent;
+    @media screen and (hover: hover) {
+        &:hover {
+            background-color: #f86e05;
+            border-color: transparent;
+        }
     }
 }

@@ -49,9 +49,11 @@
             text-align: center;
         }
 
-        &:hover {
-            background-color: lighten(#051622, 20);
-            border-color: transparent;
+        @media screen and (hover: hover) {
+            &:hover {
+                background-color: lighten(#051622, 20);
+                border-color: transparent;
+            }
         }
     }
 
