@@ -1,9 +1,9 @@
 export function Price() {
     return (
-        <section className="price wrapper">
+        <section className="price wrapper" id="price">
             <div className="price__content">
                 <h2 className="price__h2">
-                    Факторы, влияющие на формирование цены на сварочные услуги:
+                    Факторы формирования цены на сварочные услуги:
                 </h2>
                 <ul className="price-factors__list">
                     <li className="price-factors__li">

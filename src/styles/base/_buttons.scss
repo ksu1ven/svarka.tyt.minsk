@@ -9,8 +9,14 @@
     color: var(--color-white);
     min-width: 12rem;
     min-height: 3.2rem;
+    transition: var(--transition);
 
     @include mixins.respond-to(mobile) {
         width: 100%;
+    }
+
+    &:hover {
+        background-color: #f86e05;
+        border-color: transparent;
     }
 }

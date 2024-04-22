@@ -1,9 +1,19 @@
-import { NavLink } from 'react-router-dom';
+import { useRef } from 'react';
 
 export function Header() {
+    const inputRef = useRef<HTMLInputElement>(null);
+    const listRef = useRef<HTMLUListElement>(null);
+
     const handleChange = (el: HTMLInputElement) => {
         if (el.checked) document.body.style.setProperty('overflow', 'hidden');
         else document.body.style.removeProperty('overflow');
+    };
+
+    const handleClick = () => {
+        if (inputRef.current && listRef.current) {
+            inputRef.current.checked = false;
+            document.body.style.removeProperty('overflow');
+        }
     };
 
     return (
@@ -15,6 +25,7 @@ export function Header() {
                             id="menu__toggle"
                             type="checkbox"
                             onChange={(e) => handleChange(e.target)}
+                            ref={inputRef}
                         />
                         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                         <label className="menu__btn" htmlFor="menu__toggle">
@@ -24,26 +35,42 @@ export function Header() {
                         </label>
                     </>
                 )}
-                <ul className="nav__list">
+                <ul className="nav__list" ref={listRef}>
                     <li>
-                        <NavLink to="#" className="nav__link">
+                        <a
+                            href="#services"
+                            className="nav__link"
+                            onClick={handleClick}
+                        >
                             Услуги
-                        </NavLink>
+                        </a>
                     </li>
                     <li>
-                        <NavLink to="#" className="nav__link">
+                        <a
+                            href="#examples"
+                            className="nav__link"
+                            onClick={handleClick}
+                        >
                             Примеры работ
-                        </NavLink>
+                        </a>
                     </li>
                     <li>
-                        <NavLink to="#" className="nav__link">
-                            Форма для связи
-                        </NavLink>
+                        <a
+                            href="#price"
+                            className="nav__link"
+                            onClick={handleClick}
+                        >
+                            Расчёт цены
+                        </a>
                     </li>
                     <li>
-                        <NavLink to="#" className="nav__link">
+                        <a
+                            href="#contacts"
+                            className="nav__link"
+                            onClick={handleClick}
+                        >
                             Контакты
-                        </NavLink>
+                        </a>
                     </li>
                 </ul>
             </nav>

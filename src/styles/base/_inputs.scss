@@ -42,10 +42,16 @@
         font-size: var(--fs-small);
         cursor: pointer;
         min-height: 3.2rem;
+        transition: var(--transition);
 
         @include mixins.respond-to(mobile) {
             width: 100%;
             text-align: center;
+        }
+
+        &:hover {
+            background-color: lighten(#051622, 20);
+            border-color: transparent;
         }
     }
 

@@ -16,6 +16,14 @@
     }
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    transition: var(--transition);
+    &:hover {
+        @include mixins.hover2();
+    }
+}
+
 .swiper-button-prev::after {
     content: '❮';
     color: var(--color-accent);

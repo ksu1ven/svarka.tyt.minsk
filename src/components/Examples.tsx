@@ -14,7 +14,7 @@ export function Examples() {
     const EXAMPLES = new Array(8).fill(cat);
 
     return (
-        <section className="examples-bg">
+        <section className="examples-bg" id="examples">
             <div className="examples wrapper">
                 <h2 className="examples__h2">Примеры наших работ</h2>
                 <div className="examples__content">

@@ -8,7 +8,7 @@ import { Phone } from './small/Phone';
 
 export function Contacts() {
     return (
-        <section className="contacts wrapper">
+        <section className="contacts wrapper" id="contacts">
             <h2 className="contacts__h2">Свяжитесь с нами</h2>
             <div className="contacts__blocks">
                 <div className="contacts__block">

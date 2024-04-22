@@ -64,3 +64,15 @@ $breakpoints: (
     font-size: var(--fs-list);
     line-height: 1.2em;
 }
+
+@mixin hover {
+    @media screen and (hover: hover) {
+        transform: scale(1.1);
+    }
+}
+
+@mixin hover2 {
+    @media screen and (hover: hover) {
+        transform: scale(1.4);
+    }
+}

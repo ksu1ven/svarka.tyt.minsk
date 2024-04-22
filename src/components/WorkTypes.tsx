@@ -40,7 +40,7 @@ export function WorkTypes() {
     );
 
     return (
-        <section className="worktypes wrapper">
+        <section className="worktypes wrapper" id="services">
             <div className="worktypes__content">
                 <h2>
                     Виды <br />

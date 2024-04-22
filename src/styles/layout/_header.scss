@@ -4,7 +4,7 @@
     &-bg {
         background: linear-gradient(to right, #fdd801 40%, #051622 40%);
         @include mixins.respond-to(tablet) {
-            background: var(--color-accent);
+            background: var(--color-light);
         }
     }
 }
@@ -28,6 +28,14 @@
     @include mixins.respond-to(mobile) {
         padding: 1rem var(--padding-m);
     }
+    .nav__link {
+        transition: var(--transition);
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom: 2px solid var(--color-light);
+        }
+    }
 
     &__list {
         @include mixins.flex(null, flex-end, center);
@@ -42,21 +50,33 @@
             gap: 0.5rem;
         }
         @include mixins.respond-to(tablet) {
-            visibility: hidden;
+            transform: scaleY(0);
             position: fixed;
             top: 0;
+            margin: 0;
             left: 0;
             height: 100dvh;
             width: 100vw;
             z-index: 10;
+            padding: 0 var(--padding-l);
             @include mixins.flex(column, center, flex-start);
             text-align: left;
-            background-color: var(--color-accent);
+            background-color: var(--color-dark);
+            transition: var(--transition);
+            transform-origin: top;
+
+            li {
+                width: 100%;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid var(--color-white);
+            }
 
             .nav__link {
-                @include mixins.h2();
+                width: 100%;
+                font-size: var(--fs-medium);
+                font-weight: var(--ff-title);
                 font-weight: bold;
-                color: var(--color-dark);
+                color: var(--color-white);
             }
         }
     }
@@ -102,5 +122,5 @@
     transform: rotate(-45deg) translateY(-0.5rem) translateX(0.5rem);
 }
 #menu__toggle:checked ~ .nav__list {
-    visibility: visible;
+    transform: scaleY(1);
 }
