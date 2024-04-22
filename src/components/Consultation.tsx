@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { validationSchema } from '@utils/yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { fileToBase64 } from '@utils/functions';
 import InputMask from 'react-input-mask';
 import consultationImg from '@assets/images/consultation.jpg';
+import { PulseLoader } from 'react-spinners';
 import { InputFile } from './small/InputFile';
 
 // http://localhost:3001
@@ -23,8 +25,14 @@ export function Consultation() {
         formState: { errors, isValid },
         handleSubmit,
     } = useForm({
-        mode: 'onChange',
+        mode: 'onBlur',
         resolver: yupResolver(validationSchema),
+    });
+
+    const [isEmailSending, setIsEmailSending] = useState(false);
+    const [emailSendResult, setEmailSendResult] = useState({
+        success: false,
+        message: '',
     });
 
     const onSubmit = async (data: Fields) => {
@@ -43,7 +51,8 @@ export function Consultation() {
             : [];
 
         try {
-            await fetch('/api/send', {
+            setIsEmailSending(true);
+            const response = await fetch('http://localhost:3001/api/send', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -56,10 +65,30 @@ export function Consultation() {
                     description,
                 }),
             });
-
-            alert('Email sent!');
+            if (response.ok)
+                setEmailSendResult({
+                    success: true,
+                    message: 'Email успешно отправлен.',
+                });
+            else {
+                setEmailSendResult({
+                    success: false,
+                    message: 'Ошибка отправки. Попробуйте ещё раз.',
+                });
+            }
         } catch (err) {
-            alert(err);
+            setEmailSendResult({
+                success: false,
+                message: 'Ошибка отправки. Попробуйте ещё раз.',
+            });
+        } finally {
+            setIsEmailSending(false);
+            setTimeout(() => {
+                setEmailSendResult({
+                    success: false,
+                    message: '',
+                });
+            }, 1000);
         }
     };
 
@@ -87,7 +116,7 @@ export function Consultation() {
                     >
                         <div className="form__item">
                             <label htmlFor="name" className="form__label">
-                                Ваше имя <span>*</span>
+                                Ваше имя<span>&nbsp;*</span>
                             </label>
                             <div>
                                 <input
@@ -104,7 +133,7 @@ export function Consultation() {
                         </div>
                         <div className="form__item">
                             <label htmlFor="phone" className="form__label">
-                                Контактный номер <span>*</span>
+                                Контактный номер<span>&nbsp;*</span>
                             </label>
                             <div>
                                 <InputMask
@@ -126,8 +155,7 @@ export function Consultation() {
                                     {...register('description')}
                                     className="form__input"
                                     placeholder="Комментарий"
-                                    rows={5}
-                                    cols={5}
+                                    rows={4}
                                 />
                                 <p className="form__error">
                                     {errors.description
@@ -147,8 +175,20 @@ export function Consultation() {
                             type="submit"
                             disabled={!isValid}
                         >
-                            Отправить
+                            {isEmailSending ? (
+                                <PulseLoader color="#fff" />
+                            ) : (
+                                'Отправить'
+                            )}
                         </button>
+
+                        {emailSendResult.message && (
+                            <div
+                                className={`send-result ${emailSendResult.success ? 'send-result_success' : 'send-result_error'}`}
+                            >
+                                {emailSendResult.message}
+                            </div>
+                        )}
                     </form>
                 </div>
             </div>

@@ -14,7 +14,7 @@
             top: 10%;
         }
 
-        @include mixins.respond-to(mobile) {
+        @include mixins.respond-to(tablet) {
             background: linear-gradient(
                 to right,
                 var(--color-dark) 20%,

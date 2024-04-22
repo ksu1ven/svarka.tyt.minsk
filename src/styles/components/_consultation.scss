@@ -8,6 +8,14 @@
             var(--color-accent) 30% 70%,
             var(--color-dark) 70%
         );
+        @include mixins.respond-to(tablet) {
+            background: linear-gradient(
+                to right,
+                var(--color-dark) 20%,
+                var(--color-accent) 20% 80%,
+                var(--color-dark) 80%
+            );
+        }
     }
 
     padding: var(--padding);
@@ -15,6 +23,8 @@
 
     @include mixins.respond-to(desktop) {
         padding: var(--padding-d);
+        position: relative;
+        @include mixins.flex(null, flex-end, flex-start);
     }
     @include mixins.respond-to(laptop) {
         padding: var(--padding-l);
@@ -27,19 +37,45 @@
         flex: 0 50%;
         @include mixins.flex(null, flex-end, auto);
 
-        @include mixins.respond-to(tablet) {
-            @include mixins.flex(null, center, auto);
-
-            background: var(--color-accent);
+        @include mixins.respond-to(desktop) {
+            position: absolute;
+            @include mixins.flex(null, flex-start, auto);
+            top: 10%;
+            left: calc(var(--padding-d) / 2);
+            width: 50vw;
         }
-    }
-    &__img {
+        @include mixins.respond-to(laptop) {
+            left: calc(var(--padding-l) / 2);
+        }
+        @include mixins.respond-to(tablet) {
+            width: 60vw;
+        }
+        @include mixins.respond-to(mobile) {
+            width: 100vw;
+            left: 0;
+            top: 20%;
+        }
     }
 
     &__content {
         flex: 0 40%;
 
         @include mixins.flex(column, flex-start, flex-end);
+
+        @include mixins.respond-to(desktop) {
+            position: relative;
+            z-index: 2;
+            margin-top: 4rem;
+        }
+        @include mixins.respond-to(tablet) {
+            margin-top: 2rem;
+            gap: var(--gap-t);
+        }
+
+        @include mixins.respond-to(mobile) {
+            flex: 1 100%;
+            margin-top: 0;
+        }
     }
 }
 
@@ -47,12 +83,31 @@
     @include mixins.flex(column, flex-end, flex-start);
     gap: 1rem;
     margin: var(--margin) 4rem 0 0;
+    position: relative;
+
+    @include mixins.respond-to(tablet) {
+        gap: var(--gap-t);
+    }
+
+    @include mixins.respond-to(mobile) {
+        width: 100%;
+        margin: 0;
+    }
 
     .form__item {
         @include mixins.flex(null, flex-end, flex-start);
         width: 100%;
         font-size: var(--fs-small);
         gap: 1rem;
+
+        @include mixins.respond-to(tablet) {
+            @include mixins.flex(column, flex-end, flex-start);
+            gap: var(--gap-t);
+        }
+
+        @include mixins.respond-to(mobile) {
+            align-items: stretch;
+        }
     }
 
     .form__error {
@@ -68,6 +123,28 @@
 
         span {
             color: var(--color-error);
+        }
+    }
+
+    .send-result {
+        position: absolute;
+        padding: 0.6rem 2rem;
+
+        display: grid;
+        place-content: center;
+        left: 0;
+        min-height: 3.2rem;
+
+        &_success {
+            background-color: var(--color-success);
+        }
+
+        &_error {
+            background-color: var(--color-error);
+        }
+
+        @include mixins.respond-to(mobile) {
+            width: 100%;
         }
     }
 }

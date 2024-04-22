@@ -1,8 +1,16 @@
+@use '../utils/mixins';
+
 .form__button {
     background-color: #e18339;
     border: 2px solid #e18339;
-    padding: 0.5rem 2rem;
+    padding: 0.7rem 2rem;
     font-size: var(--fs-small);
     cursor: pointer;
     color: var(--color-white);
+    min-width: 11.4rem;
+    min-height: 3.2rem;
+
+    @include mixins.respond-to(mobile) {
+        width: 100%;
+    }
 }

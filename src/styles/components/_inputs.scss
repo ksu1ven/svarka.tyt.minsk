@@ -3,24 +3,50 @@
 .input-file {
     position: relative;
     flex: 0 auto;
+    min-width: 12rem;
+
+    @include mixins.respond-to(mobile) {
+        width: 100%;
+    }
 
     &-row {
         width: 100%;
         @include mixins.flex(null, space-between, flex-start);
-        gap: 0.5rem;
+        gap: var(--gap-t);
+
+        @include mixins.respond-to(mobile) {
+            @include mixins.flex(column, flex-start, flex-start);
+            gap: 0;
+        }
     }
 
     &__choose {
         @include mixins.flex(column, flex-start, flex-start);
         gap: 1rem;
         flex: 0 50%;
+
+        @include mixins.respond-to(tablet) {
+            gap: var(--gap-t);
+        }
+
+        @include mixins.respond-to(mobile) {
+            width: 100%;
+        }
     }
     span {
+        display: grid;
+        place-items: center;
         background-color: var(--color-dark);
         border: 2px solid var(--color-white);
-        padding: 0.5rem 2rem;
+        padding: 0.7rem 2rem;
         font-size: var(--fs-small);
         cursor: pointer;
+        min-height: 3.2rem;
+
+        @include mixins.respond-to(mobile) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     input[type='file'] {
@@ -37,6 +63,11 @@
         gap: 0.5rem;
         flex: 0 50%;
 
+        @include mixins.respond-to(mobile) {
+            flex: 1 100%;
+            width: 100%;
+        }
+
         .file {
             @include mixins.flex(null, flex-end, center);
             gap: 0.2rem;
@@ -44,18 +75,30 @@
             &__name {
                 font-size: var(--fs-small);
                 word-wrap: break-word;
+
+                @include mixins.respond-to(mobile) {
+                    text-align: right;
+                }
             }
 
             &__btn_remove {
                 width: 1rem;
                 height: 1rem;
                 background-color: var(--color-accent);
+                color: var(--color-white);
                 border: none;
                 cursor: pointer;
                 font-weight: bold;
                 font-size: var(--fs-smallest);
                 display: grid;
                 place-content: center;
+                flex-shrink: 0;
+
+                @include mixins.respond-to(mobile) {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    font-size: var(--fs-medium-small);
+                }
             }
         }
     }
@@ -66,4 +109,8 @@
     padding: 0.5rem 1rem;
     background-color: var(--color-white);
     border: none;
+
+    @include mixins.respond-to(mobile) {
+        width: 100%;
+    }
 }
