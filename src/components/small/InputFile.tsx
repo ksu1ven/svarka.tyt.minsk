@@ -81,7 +81,9 @@ export function InputFile({
                     />
                     <span>Выберите файл</span>
                 </label>
-                <p className="form__error">{error ? error.message : ''}</p>
+                <p className="form__error form__error_file">
+                    {error ? error.message : ''}
+                </p>
             </div>
 
             <div className="input-file__list">

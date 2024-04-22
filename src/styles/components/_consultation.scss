@@ -116,6 +116,10 @@
         font-size: var(--fs-small);
         color: var(--color-error);
         text-transform: lowercase;
+
+        &_file {
+            min-height: fit-content;
+        }
     }
 
     .form__label {
