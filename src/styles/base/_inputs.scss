@@ -55,6 +55,13 @@
                 border-color: transparent;
             }
         }
+
+        @media screen and (hover: none) {
+            &:active {
+                background-color: lighten(#051622, 20);
+                border-color: transparent;
+            }
+        }
     }
 
     input[type='file'] {
