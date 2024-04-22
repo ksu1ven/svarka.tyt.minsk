@@ -52,7 +52,7 @@ export function Consultation() {
 
         try {
             setIsEmailSending(true);
-            const response = await fetch('http://localhost:3001/api/send', {
+            const response = await fetch('/api/send', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
