@@ -43,6 +43,7 @@
         cursor: pointer;
         min-height: 3.2rem;
         transition: var(--transition);
+        border-radius: var(--border-radius);
 
         @include mixins.respond-to(mobile) {
             width: 100%;
@@ -124,6 +125,7 @@
     padding: 0.5rem 1rem;
     background-color: var(--color-white);
     border: none;
+    border-radius: var(--border-radius);
 
     @include mixins.respond-to(mobile) {
         width: 100%;

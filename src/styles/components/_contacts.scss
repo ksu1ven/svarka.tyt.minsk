@@ -27,6 +27,7 @@
         @include mixins.flex(column, flex-start, center);
         padding: var(--padding-l);
         gap: var(--gap);
+        border-radius: var(--border-radius);
 
         @include mixins.respond-to(laptop) {
             padding: var(--padding-m);

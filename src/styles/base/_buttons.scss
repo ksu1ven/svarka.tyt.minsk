@@ -2,7 +2,7 @@
 
 .form__button {
     background-color: #e18339;
-    border: 2px solid #e18339;
+    border: 2px solid var(--color-white);
     padding: 0.7rem 2rem;
     font-size: var(--fs-small);
     cursor: pointer;
@@ -10,9 +10,15 @@
     min-width: 12rem;
     min-height: 3.2rem;
     transition: var(--transition);
+    border-radius: var(--border-radius);
 
     &:disabled {
         opacity: 80%;
+        &:hover {
+            background-color: #e18339;
+            border: 2px solid var(--color-white);
+            cursor: auto;
+        }
     }
 
     @include mixins.respond-to(mobile) {

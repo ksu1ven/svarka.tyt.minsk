@@ -139,6 +139,7 @@
         place-content: center;
         left: 0;
         min-height: 3.2rem;
+        border-radius: var(--border-radius);
 
         &_success {
             background-color: var(--color-success);
