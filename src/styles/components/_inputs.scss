@@ -16,7 +16,7 @@
 
         @include mixins.respond-to(mobile) {
             @include mixins.flex(column, flex-start, flex-start);
-            gap: 0;
+            gap: var(--gap-t);
         }
     }
 
@@ -74,7 +74,7 @@
 
             &__name {
                 font-size: var(--fs-small);
-                word-wrap: break-word;
+                word-break: break-all;
 
                 @include mixins.respond-to(mobile) {
                     text-align: right;
