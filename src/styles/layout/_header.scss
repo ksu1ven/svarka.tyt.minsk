@@ -100,11 +100,13 @@
     z-index: 100;
     border: 2px solid var(--color-white);
     padding: 0.5rem;
+    border-radius: var(--border-radius);
 
     div {
         background-color: var(--color-white);
         height: 3px;
         width: 90%;
+        border-radius: var(--border-radius);
     }
 }
 
