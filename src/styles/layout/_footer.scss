@@ -1,4 +1,27 @@
 @use '../utils/mixins';
 
 .footer {
+    padding: 0 var(--padding) var(--padding);
+
+    @include mixins.respond-to(desktop) {
+        padding: 0 var(--padding-d) var(--padding-d);
+    }
+
+    @include mixins.respond-to(laptop) {
+        padding: 0 var(--padding-l) var(--padding-l);
+    }
+
+    @include mixins.respond-to(mobile) {
+        padding: 0 var(--padding-m) var(--padding-m);
+    }
+
+    &__content {
+        text-align: right;
+        font-size: var(--fs-small);
+        color: var(--color-light);
+
+        h6 {
+            margin: 0;
+        }
+    }
 }

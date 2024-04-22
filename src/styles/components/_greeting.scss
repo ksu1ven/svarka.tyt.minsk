@@ -99,28 +99,3 @@
         }
     }
 }
-
-.contacts {
-    @include mixins.flex(null, flex-end, center);
-    font-family: var(--ff-text);
-    font-weight: bold;
-    font-size: var(--fs-medium);
-    gap: 0.8rem;
-
-    @include mixins.respond-to(laptop) {
-        gap: 0.5rem;
-    }
-    @include mixins.respond-to(tablet) {
-        @include mixins.flex(column-reverse, flex-end, flex-end);
-        gap: 0.3rem;
-    }
-
-    &__icons {
-        @include mixins.flex(null, flex-end, center);
-        gap: 0.5rem;
-    }
-
-    &__icon {
-        width: 3rem;
-    }
-}

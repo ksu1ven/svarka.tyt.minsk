@@ -1,0 +1,141 @@
+@use '../utils/mixins';
+
+.contacts {
+    padding: var(--padding);
+    @include mixins.respond-to(desktop) {
+        padding: var(--padding-d);
+    }
+    @include mixins.respond-to(laptop) {
+        padding: var(--padding-l);
+    }
+    @include mixins.respond-to(mobile) {
+        padding: var(--padding-m);
+    }
+
+    &__blocks {
+        @include mixins.flex(null, space-between, stretch);
+        @include mixins.respond-to(tablet) {
+            @include mixins.flex(null, center, stretch);
+            flex-wrap: wrap;
+            gap: var(--gap);
+        }
+    }
+
+    &__block {
+        border: 2px solid var(--color-white);
+        flex: 0 30%;
+        @include mixins.flex(column, flex-start, center);
+        padding: var(--padding-l);
+        gap: var(--gap);
+
+        @include mixins.respond-to(laptop) {
+            padding: var(--padding-m);
+        }
+
+        @include mixins.respond-to(tablet) {
+            flex: 0 47%;
+        }
+
+        @include mixins.respond-to(mobile) {
+            flex: 0 100%;
+
+            gap: var(--gap-t);
+        }
+    }
+
+    &__img-container {
+        width: 4rem;
+        height: 4rem;
+        border: 4px solid var(--color-white);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+
+        .email {
+            transform: scale(1.1);
+        }
+
+        .phone {
+            transform: scale(1.05);
+        }
+
+        .media {
+            transform: scale(1.2);
+        }
+    }
+
+    &__h2 {
+        margin-bottom: var(--padding);
+        text-align: center;
+
+        @include mixins.respond-to(desktop) {
+            margin-bottom: var(--padding-d);
+        }
+        @include mixins.respond-to(laptop) {
+            margin-bottom: var(--padding-l);
+        }
+        @include mixins.respond-to(mobile) {
+            margin-bottom: var(--padding-m);
+        }
+    }
+
+    &__h3 {
+        color: var(--color-light);
+        font-weight: bold;
+    }
+
+    &__link {
+        text-align: center;
+        @include mixins.flex(null, flex-start, center);
+        gap: var(--gap-t);
+        font-size: var(--fs-medium-small);
+
+        span {
+            text-align: left;
+        }
+
+        &_media {
+            width: 70%;
+
+            @include mixins.respond-to(desktop) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.phone {
+    @include mixins.flex(null, flex-end, center);
+    font-family: var(--ff-text);
+    font-weight: bold;
+    font-size: var(--fs-medium);
+    gap: 0.8rem;
+
+    &_small {
+        @include mixins.flex(column-reverse, center, center);
+        font-size: var(--fs-medium-small);
+        gap: var(--gap-t);
+        width: 100%;
+
+        @include mixins.respond-to(tablet) {
+            align-items: center !important;
+        }
+    }
+
+    @include mixins.respond-to(laptop) {
+        gap: 0.5rem;
+    }
+    @include mixins.respond-to(tablet) {
+        @include mixins.flex(column-reverse, flex-end, flex-end);
+        gap: 0.3rem;
+    }
+
+    &__icons {
+        @include mixins.flex(null, flex-end, center);
+        gap: 0.5rem;
+    }
+}
+
+.icon {
+    width: 3rem;
+}

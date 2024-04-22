@@ -7,7 +7,7 @@
     font-size: var(--fs-small);
     cursor: pointer;
     color: var(--color-white);
-    min-width: 11.4rem;
+    min-width: 12rem;
     min-height: 3.2rem;
 
     @include mixins.respond-to(mobile) {
