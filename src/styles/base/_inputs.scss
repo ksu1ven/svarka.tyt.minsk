@@ -48,6 +48,7 @@
         @include mixins.respond-to(mobile) {
             width: 100%;
             text-align: center;
+            font-size: var(--fs-medium-small);
         }
 
         @media screen and (hover: hover) {
@@ -129,5 +130,7 @@
 
     @include mixins.respond-to(mobile) {
         width: 100%;
+        min-height: 3.2rem;
+        font-size: var(--fs-medium-small);
     }
 }

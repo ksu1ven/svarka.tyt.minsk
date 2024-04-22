@@ -23,6 +23,7 @@
 
     @include mixins.respond-to(mobile) {
         width: 100%;
+        font-size: var(--fs-medium-small);
     }
 
     @media screen and (hover: hover) {
