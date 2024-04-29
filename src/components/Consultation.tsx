@@ -52,19 +52,22 @@ export function Consultation() {
 
         try {
             setIsEmailSending(true);
-            const response = await fetch('/api/send', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name,
-                    phone,
-                    images: images64,
-                    description,
-                }),
-            });
+            const response = await fetch(
+                `${process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''}/api/send`,
+                {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        images: images64,
+                        description,
+                    }),
+                }
+            );
             if (response.ok)
                 setEmailSendResult({
                     success: true,

@@ -50,11 +50,11 @@ export function Contacts() {
                     </div>
                     <h3 className="contacts__h3">Email</h3>
                     <Link
-                        to="mailto:ksu1ven@mail.ru"
+                        to="mailto:igorosechkin2407@gmail.com"
                         target="blank"
                         className="contacts__link"
                     >
-                        ksu1ven@mail.ru
+                        igorosechkin2407@gmail.com
                     </Link>
                 </div>
             </div>

@@ -37,7 +37,7 @@ app.post('/api/send', (req, res) => {
 
     let mailoptions = {
         from: 'ksu1ven@mail.ru',
-        to: 'ksu1ven@mail.ru',
+        to: 'igorosechkin2407@gmail.com',
         subject: 'Новый заказ с сайта svarka-tyt-minsk',
         html: `
         <h2>Имя клиента: ${name}</h2>
