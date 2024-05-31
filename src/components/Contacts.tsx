@@ -27,6 +27,7 @@ export function Contacts() {
                         to="https://www.instagram.com/svarka.tyt.minsk/"
                         target="blank"
                         className="contacts__link contacts__link_media"
+                        rel="nofollow"
                     >
                         <img src={instagram} alt="instagram" className="icon" />
                         <span>
@@ -39,6 +40,7 @@ export function Contacts() {
                         to="https://t.me/+vjQYB387bY5lZTZi"
                         target="blank"
                         className="contacts__link contacts__link_media"
+                        rel="nofollow"
                     >
                         <img src={telegram} alt="telegram" className="icon" />
                         <span>Группа в Telegram</span>
@@ -53,6 +55,7 @@ export function Contacts() {
                         to="mailto:igorosechkin2407@gmail.com"
                         target="blank"
                         className="contacts__link"
+                        rel="nofollow"
                     >
                         igorosechkin2407@gmail.com
                     </Link>

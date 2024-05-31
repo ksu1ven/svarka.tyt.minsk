@@ -9,7 +9,13 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'server.js', 'api/index.js'],
+    ignorePatterns: [
+        'dist',
+        '.eslintrc.cjs',
+        'vite.config.ts',
+        'server.js',
+        'api/index.js',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
