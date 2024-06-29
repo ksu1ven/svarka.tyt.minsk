@@ -1,24 +1,47 @@
+
+
 @font-face {
-    font-family: 'OpenSans-Regular';
-    src: url('@assets/fonts/OpenSans-Regular.ttf') format('truetype');
+    font-family: 'Open Sans';
+    src: url('@assets/fonts/OpenSans-Regular.woff2') format('woff2'),
+        url('@assets/fonts/OpenSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'OpenSans-Bold';
-    src: url('@assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
+    font-family: 'Open Sans';
+    src: url('@assets/fonts/OpenSans-SemiBold.woff2') format('woff2'),
+        url('@assets/fonts/OpenSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'Ubuntu-Regular';
-    src: url('@assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-family: 'Playfair Display';
+    src: url('@assets/fonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+        url('@assets/fonts/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'Ubuntu-Bold';
-    src: url('@assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-family: 'Ubuntu';
+    src: url('@assets/fonts/Ubuntu-Bold.woff2') format('woff2'),
+        url('@assets/fonts/Ubuntu-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'PlayfairDisplay';
-    src: url('@assets/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-family: 'Ubuntu';
+    src: url('@assets/fonts/Ubuntu-Regular.woff2') format('woff2'),
+        url('@assets/fonts/Ubuntu-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
+

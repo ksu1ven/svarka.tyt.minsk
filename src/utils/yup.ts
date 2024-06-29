@@ -22,7 +22,6 @@ export const validationSchema = object({
             'Размер каждого изображения не должен превышать 10 МБ',
             (files) => {
                 if (files) {
-                    /* eslint-disable-next-line */
                     for (const file of files) {
                         if (file.size >= 1e7) return false;
                     }
@@ -35,7 +34,6 @@ export const validationSchema = object({
             'Фото должно быть в PNG или JPEG формате',
             (files) => {
                 if (files) {
-                    /* eslint-disable-next-line */
                     for (const file of files) {
                         if (
                             !(

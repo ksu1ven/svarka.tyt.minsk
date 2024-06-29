@@ -67,7 +67,8 @@
     }
 
     &__h1 {
-        font-family: var(--ff-title-accent);
+        font-family: var(--ff-title);
+        font-weight: bold;
         text-transform: uppercase;
         font-size: var(--fs-big);
         text-align: right;

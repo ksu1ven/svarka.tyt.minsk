@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Keyboard, A11y, Scrollbar, Zoom } from 'swiper/modules';
-import cat from '@assets/images/cat.jpg';
+import SwiperArray from '../assets/images/swiper'
 
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -11,7 +11,9 @@ import 'swiper/css/zoom';
 export function Examples() {
     const slidesPerView = window.innerWidth > 768 ? 2 : 1;
 
-    const EXAMPLES = new Array(8).fill(cat);
+    const EXAMPLES:string[]=SwiperArray;
+
+
 
     return (
         <section className="examples-bg" id="examples">

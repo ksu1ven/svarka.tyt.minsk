@@ -41,7 +41,7 @@ export function InputFile({
     const handleAddFiles = (newFiles: FileList | null) => {
         if (newFiles) {
             const newFilesArr = [];
-            /* eslint-disable-next-line */
+
             for (const file of newFiles) {
                 if (!files.map((el) => el.name).includes(file.name))
                     newFilesArr.push(file);

@@ -109,7 +109,7 @@
 .phone {
     @include mixins.flex(null, flex-end, center);
     font-family: var(--ff-text);
-    font-weight: bold;
+    font-weight: 600;
     font-size: var(--fs-medium);
     gap: 0.8rem;
 
