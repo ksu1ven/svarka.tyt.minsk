@@ -1,4 +1,4 @@
-import worktypes from '@assets/images/worktypes.jpg';
+import worktypes from '@assets/images/worktypes.avif';
 import { useState } from 'react';
 
 import { WorkItem } from './small/WorkItem';
@@ -41,33 +41,31 @@ export function WorkTypes() {
 
     return (
         <section className="worktypes wrapper" id="services">
-        <div className="worktypes__content">
+            <div className="worktypes__content">
                 <h2>
-            Виды <br />
-            сварочных работ
+                    Виды <br />
+                    сварочных работ
                 </h2>
                 <h3>
-            Также изготавливаем предметы ландшафтного <br />
-            {' '}
-            и
-            приусадебного дизайна, технологические конструкции.
-</h3>
+                    Также изготавливаем предметы ландшафтного <br /> и
+                    приусадебного дизайна, технологические конструкции.
+                </h3>
 
                 <ul className="worktypes__list">
-            {workList.map((el) => (
+                    {workList.map((el) => (
                         <WorkItem
-                el={el}
-                key={el.name}
+                            el={el}
+                            key={el.name}
                             detailsOpenDiv={detailsOpenDiv}
-                setDetailsOpenDiv={setDetailsOpenDiv}
-              />
+                            setDetailsOpenDiv={setDetailsOpenDiv}
+                        />
                     ))}
-          </ul>
-              <div />
+                </ul>
+                <div />
             </div>
             <div className="worktypes__image-container">
                 <img src={worktypes} alt="welder" className="worktypes__img" />
-      </div>
-      </section>
+            </div>
+        </section>
     );
 }

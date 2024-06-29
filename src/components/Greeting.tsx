@@ -1,4 +1,4 @@
-import logo from '@assets/images/logo.webp';
+import logo from '@assets/images/logo.avif';
 import { Phone } from './small/Phone';
 
 export function Greeting() {
