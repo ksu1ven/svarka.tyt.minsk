@@ -55,36 +55,37 @@ export function WorkItem({
     }, [detailsOpenDiv, isDetailsShown]);
 
     return (
-        <li className="work-item">
+    <li className="work-item">
             <figure className="work-item__icon">{el.short}</figure>
-            <h4 className="work-item__h4">{el.name}</h4>
-            {!el.details && (
+        <h4 className="work-item__h4">{el.name}</h4>
+        {!el.details && (
                 <p className="work-item__p">{el.description || ' '}</p>
             )}
-            {el.details && (
+        {el.details && (
                 <div className="details" ref={detailsDivRef}>
                     <button
-                        type="button"
-                        className="details__btn"
-                        onClick={(e) => {
-                            if (isMobileDevice)
+                    type="button"
+                    className="details__btn"
+                    onClick={(e) => {
+                          if (isMobileDevice) {
                                 handleClick(
-                                    (e.target as HTMLElement).closest('button')
+                              (e.target as HTMLElement).closest('button'),
                                 );
+                          }
                         }}
-                    >
-                        <img src={arrowDown} alt="details" />
-                    </button>
+                  >
+                    <img src={arrowDown} alt="details" />
+                  </button>
 
-                    <ul className="details__ul" ref={detailsListRef}>
-                        {el.details.map((li) => (
-                            <li className="details__li" key={li}>
+              <ul className="details__ul" ref={detailsListRef}>
+                    {el.details.map((li) => (
+                          <li className="details__li" key={li}>
                                 {li}
                             </li>
                         ))}
                     </ul>
-                </div>
-            )}
-        </li>
+            </div>
+          )}
+      </li>
     );
 }

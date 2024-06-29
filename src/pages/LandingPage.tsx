@@ -9,17 +9,17 @@ import { Footer } from '@components/Footer';
 
 export function LandingPage() {
     return (
-        <>
+    <>
             <Header />
-            <main>
+        <main>
                 <Greeting />
                 <WorkTypes />
-                <Examples />
+              <Examples />
                 <Price />
                 <Consultation />
                 <Contacts />
             </main>
             <Footer />
-        </>
+      </>
     );
 }

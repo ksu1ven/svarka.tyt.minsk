@@ -11,8 +11,8 @@ const router = createBrowserRouter(
         <>
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<main>error</main>} />
-        </>
-    )
+        </>,
+    ),
 );
 
 function App() {

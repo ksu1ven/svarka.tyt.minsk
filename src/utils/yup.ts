@@ -8,7 +8,7 @@ export const validationSchema = object({
     phone: string()
         .required('Это обязательное поле')
         .test('valid', 'Неверный номер', (phone) =>
-            parsePhoneNumber(phone)?.isValid()
+            parsePhoneNumber(phone)?.isValid(),
         ),
     description: string(),
 
@@ -22,18 +22,20 @@ export const validationSchema = object({
             'Размер каждого изображения не должен превышать 10 МБ',
             (files) => {
                 if (files) {
+                    //eslint-disable-next-line
                     for (const file of files) {
                         if (file.size >= 1e7) return false;
                     }
                 }
                 return true;
-            }
+            },
         )
         .test(
             'extension',
             'Фото должно быть в PNG или JPEG формате',
             (files) => {
                 if (files) {
+                    //eslint-disable-next-line
                     for (const file of files) {
                         if (
                             !(
@@ -45,6 +47,6 @@ export const validationSchema = object({
                     }
                 }
                 return true;
-            }
+            },
         ),
 });

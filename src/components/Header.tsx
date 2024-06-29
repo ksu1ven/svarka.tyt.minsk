@@ -18,62 +18,62 @@ export function Header() {
 
     return (
         <header className="header-bg">
-            <nav className="nav wrapper">
+        <nav className="nav wrapper">
                 {window.innerWidth <= 768 && (
-                    <>
+          <>
                         <input
                             id="menu__toggle"
                             type="checkbox"
-                            onChange={(e) => handleChange(e.target)}
-                            ref={inputRef}
-                        />
-                        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                        onChange={(e) => handleChange(e.target)}
+                        ref={inputRef}
+                      />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                         <label className="menu__btn" htmlFor="menu__toggle">
-                            <div />
-                            <div />
-                            <div />
+                        <div />
+                        <div />
+                        <div />
                         </label>
-                    </>
-                )}
+                </>
+          )}
                 <ul className="nav__list" ref={listRef}>
-                    <li>
+            <li>
                         <a
-                            href="#services"
+                href="#services"
                             className="nav__link"
-                            onClick={handleClick}
-                        >
+                onClick={handleClick}
+              >
                             Услуги
-                        </a>
+              </a>
                     </li>
                     <li>
-                        <a
-                            href="#examples"
+                    <a
+                          href="#examples"
                             className="nav__link"
                             onClick={handleClick}
                         >
                             Примеры работ
                         </a>
-                    </li>
+                  </li>
                     <li>
-                        <a
-                            href="#price"
+                    <a
+                          href="#price"
                             className="nav__link"
-                            onClick={handleClick}
+                          onClick={handleClick}
                         >
                             Расчёт цены
                         </a>
-                    </li>
-                    <li>
+                  </li>
+            <li>
                         <a
-                            href="#contacts"
-                            className="nav__link"
-                            onClick={handleClick}
-                        >
+                href="#contacts"
+                className="nav__link"
+                onClick={handleClick}
+              >
                             Контакты
-                        </a>
+              </a>
                     </li>
-                </ul>
-            </nav>
-        </header>
+          </ul>
+          </nav>
+      </header>
     );
 }
