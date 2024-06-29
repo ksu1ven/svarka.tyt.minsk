@@ -19,7 +19,7 @@
     }
 
     &__content {
-        flex: 0 45%;
+        flex: 0 0 45%;
         @include mixins.flex(column, flex-start, flex-start);
         gap: var(--gap);
 
@@ -30,7 +30,7 @@
     }
 
     &__image-container {
-        flex: 0 auto;
+        flex: 1 0 55%;
         @include mixins.flex(null, flex-end, center);
 
         @include mixins.respond-to(desktop) {
@@ -48,6 +48,7 @@
 
     &__img {
         height: 50rem;
+        width: auto;
 
         @include mixins.respond-to(desktop) {
             height: 40rem;
