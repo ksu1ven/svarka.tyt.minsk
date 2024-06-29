@@ -3,7 +3,7 @@
 .worktypes {
     padding: var(--padding);
 
-    @include mixins.flex(null, flex-end, auto);
+    @include mixins.flex(null, flex-end, stretch);
 
     @include mixins.respond-to(desktop) {
         display: block;
@@ -19,7 +19,7 @@
     }
 
     &__content {
-        flex: 0 0 45%;
+        flex: 0 1 45%;
         @include mixins.flex(column, flex-start, flex-start);
         gap: var(--gap);
 
@@ -30,7 +30,7 @@
     }
 
     &__image-container {
-        flex: 1 0 55%;
+        flex: 1 1 55%;
         @include mixins.flex(null, flex-end, center);
 
         @include mixins.respond-to(desktop) {
