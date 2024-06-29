@@ -46,3 +46,7 @@ h3 {
 h4 {
     @include mixins.h4();
 }
+
+img{
+    user-select: none;
+}
