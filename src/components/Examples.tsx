@@ -9,8 +9,6 @@ import 'swiper/scss/scrollbar';
 import 'swiper/css/zoom';
 
 export function Examples() {
-    const slidesPerView = window.innerWidth > 768 ? 2 : 1;
-
     const EXAMPLES = SwiperArray;
 
     return (
@@ -21,8 +19,17 @@ export function Examples() {
                     <Swiper
                         className="examples-swiper"
                         modules={[Navigation, Keyboard, A11y, Scrollbar, Zoom]}
-                        spaceBetween={50}
-                        slidesPerView={slidesPerView}
+                        breakpoints={{
+                            320: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 50,
+                            },
+                        }}
+                        lazyPreloadPrevNext={1}
                         speed={600}
                         navigation
                         keyboard
@@ -42,6 +49,7 @@ export function Examples() {
                                         src={el}
                                         alt="work example"
                                         className="examples__img"
+                                        loading="lazy"
                                     />
                                 </div>
                             </SwiperSlide>
