@@ -23,7 +23,7 @@ import photo22 from './photo_23_2024-06-29_23-14-14.jpg';
 import photo23 from './photo_24_2024-06-29_23-14-14.jpg';
 import photo24 from './photo_25_2024-06-29_23-14-14.jpg';
 
-export default [
+const photos: string[] = [
     photo,
     photo2,
     photo3,
@@ -48,4 +48,6 @@ export default [
     photo22,
     photo23,
     photo24
-];
+  ];
+  
+  export default photos;
